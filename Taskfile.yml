@@ -1,0 +1,12 @@
+version: "2"
+
+vars:
+  IMAGE: skurtzemann/auto-changelog
+  IMAGE_TAG: 1.16.2
+  IMAGE_NAME: "{{.IMAGE}}:{{.IMAGE_TAG}}"
+
+
+tasks:
+  build:
+    cmds: 
+      - cmd: docker build --build-arg AUTO_CHANGELOG_VER={{.IMAGE_TAG}} -t {{.IMAGE_NAME}} .
